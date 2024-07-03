@@ -489,9 +489,8 @@ elif [[ $exitcode -ne 0 ]] ; then
   echo "${run_params[@]}"
 fi
 
-echo "DEBUG: checking token"
+set -x
 if [[ -n "${BUILDKITE_AGENT_ACCESS_TOKEN:-}" ]] ; then
-  echo "DEBUG: checking CHECK_LINKED_CONTAINERS"
   if [[ "$(plugin_read_config CHECK_LINKED_CONTAINERS "true")" != "false" ]] ; then
     print_failed_container_information
 
